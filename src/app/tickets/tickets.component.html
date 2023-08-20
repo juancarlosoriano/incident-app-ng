@@ -1,0 +1,56 @@
+<div class="container-fluid">
+  <div class="row status-options">
+    <div class="col">
+      <button
+        class="btn btn-block btn-primary btn-status"
+        (click)="changeStatus()"
+      >
+        All Tickets
+      </button>
+    </div>
+    <div class="col">
+      <button
+        class="btn btn-block btn-success btn-status"
+        (click)="changeStatus('Open')"
+      >
+        Open Tickets
+      </button>
+    </div>
+    <div class="col">
+      <button
+        class="btn btn-block btn-danger btn-status"
+        (click)="changeStatus('Closed')"
+      >
+        Closed Tickets
+      </button>
+    </div>
+    <div class="col">
+      <button class="btn btn-block btn-danger btn-status" (click)="addTicket()">
+        Add Ticket
+      </button>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-9 p-2">
+      <div *ngFor="let t of tickets" class="card ticket">
+        <div class="card-body">
+          <h5 class="card-title">{{ t.title }}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{ t.description }}</h6>
+          <p class="card-text">
+            Some quick example text to build on the card title and make up the
+            bulk of the card's content.
+          </p>
+          <a [routerLink]="['/view-ticket', t._id]" class="card-link"
+            >View Ticket</a
+          >
+          <a [routerLink]="['/edit-ticket', t._id]" class="card-link"
+            >Edit Ticket</a
+          >
+          <a href="#" class="card-link">Close Ticket</a>
+          <a href="#" class="card-link">Delete Ticket</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

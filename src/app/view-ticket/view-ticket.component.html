@@ -1,0 +1,25 @@
+<div class="container-fluid">
+  <div *ngIf="ticket" class="view-ticket">
+    <h1>{{ ticket.title }}</h1>
+    <p><b>Description:</b> {{ ticket.description }}</p>
+    <p><b>Status:</b> {{ ticket.status }}</p>
+    <p><b>Created On:</b> {{ ticket.createdOn }}</p>
+    <p>
+      <!-- <b>Created By:</b> {{ ticket.createdBy[0] + " " + ticket.createdBy[1] }} -->
+    </p>
+    <p>
+      <b>Assigned To:</b>
+      <!-- {{ ticket.assignedTo[0] + " " + ticket.assignedTo[1] }} -->
+    </p>
+
+    <br />
+
+    <h2>Comments:</h2>
+    <ul *ngFor="let c of ticket.comments">
+      <li>
+        <p>{{ c[0] }}</p>
+        <p>{{ c[1] }}</p>
+      </li>
+    </ul>
+  </div>
+</div>
