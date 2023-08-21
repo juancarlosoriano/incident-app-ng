@@ -5,6 +5,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { TicketsComponent } from './tickets/tickets.component';
 import { ViewTicketComponent } from './view-ticket/view-ticket.component';
 import { EditTicketComponent } from './edit-ticket/edit-ticket.component';
+import { NewTicketComponent } from './new-ticket/new-ticket.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,11 @@ const routes: Routes = [
     path: 'edit-ticket/:id',
     component: EditTicketComponent,
     data: { title: 'Edit Ticket' },
+  },
+  {
+    path: 'new-ticket',
+    component: NewTicketComponent,
+    data: { title: 'Add New Ticket' },
   },
   {
     path: 'login',

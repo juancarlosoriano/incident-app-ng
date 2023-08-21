@@ -10,7 +10,7 @@ import { EditTicketModule } from './edit-ticket/edit-ticket.module';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { PartialsModule } from './partials/partials.module';
-import { NewTicketComponent } from './new-ticket/new-ticket.component';
+import { NewTicketModule } from './new-ticket/new-ticket.module';
 
 import {
   JwtModule,
@@ -24,12 +24,7 @@ export function jwtTokenGetter(): string {
 }
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    LoginComponent,
-    NewTicketComponent,
-  ],
+  declarations: [AppComponent, HomeComponent, LoginComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -38,6 +33,7 @@ export function jwtTokenGetter(): string {
     PartialsModule,
     ViewTicketModule,
     EditTicketModule,
+    NewTicketModule,
 
     JwtModule.forRoot({
       config: {
