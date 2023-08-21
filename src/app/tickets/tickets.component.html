@@ -10,22 +10,24 @@
     </div>
     <div class="col">
       <button
-        class="btn btn-block btn-success btn-status"
+        class="btn btn-block btn-warning btn-status"
         (click)="changeStatus('Open')"
       >
         Open Tickets
       </button>
     </div>
+
     <div class="col">
       <button
-        class="btn btn-block btn-danger btn-status"
-        (click)="changeStatus('Closed')"
+        class="btn btn-block btn-success btn-status"
+        (click)="changeStatus('Resolved')"
       >
-        Closed Tickets
+        Resolved Tickets
       </button>
     </div>
+
     <div class="col">
-      <button class="btn btn-block btn-danger btn-status" (click)="addTicket()">
+      <button class="btn btn-block btn-info btn-status" (click)="addTicket()">
         Add Ticket
       </button>
     </div>

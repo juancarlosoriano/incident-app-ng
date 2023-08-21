@@ -23,4 +23,12 @@ export class ViewTicketComponent implements OnInit {
   get ticket(): Ticket | undefined {
     return this.repository.getTicket(this.id);
   }
+
+  formatStringTuple(tuple: [string, string] | undefined): string {
+    if (!tuple) {
+      return '';
+    } else {
+      return `${tuple[0]} ${tuple[1]}`;
+    }
+  }
 }
