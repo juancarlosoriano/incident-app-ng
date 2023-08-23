@@ -4,28 +4,57 @@
     <p><b>Description:</b> {{ ticket.description }}</p>
     <p><b>Status:</b> {{ ticket.status }}</p>
     <p><b>Created On:</b> {{ ticket.createdOn }}</p>
-    <!-- <p><b>Created By:</b> {{ ticket.createdBy["0"]["Name"] }}</p> -->
-    <p>
-      <b>Assigned To:</b>
-      {{ formatStringTuple(ticket.assignedTo) }}
-    </p>
+    <p><b>Assigned To:</b> {{ getUserByIdToString(ticket.assignedTo) }}</p>
+    <p><b>Created By:</b> {{ getUserByIdToString(ticket.createdBy) }}</p>
 
+    <button
+      *ngIf="ticket.status == 'Open'"
+      class="btn btn-success card-link"
+      (click)="resolveTicket(ticket._id)"
+    >
+      Resolve Ticket
+    </button>
+    <button
+      *ngIf="ticket.status == 'Resolved'"
+      class="btn btn-warning card-link"
+      (click)="openTicket(ticket._id)"
+    >
+      Re-open Ticket
+    </button>
+    <button class="btn btn-danger card-link" (click)="deleteTicket(ticket._id)">
+      Delete Ticket
+    </button>
+
+    <br />
     <br />
 
     <h2>Comments:</h2>
     <ul *ngFor="let c of ticket.comments">
-      <li>
-        <p>{{ c[0] }}</p>
-        <p>{{ c[1] }}</p>
+      <li class="card">
+        <div class="card-body">
+          <p class="comment-title">
+            {{
+              getUserByIdToString(c.createdBy) +
+                " wrote on " +
+                formatDateString(c.createdOn)
+            }}
+          </p>
+          <p class="card-text">{{ c.commentText }}</p>
+        </div>
       </li>
     </ul>
 
-    <form>
+    <form
+      [formGroup]="addCommentForm"
+      *ngIf="ticket.status === 'Open'"
+      (ngSubmit)="addComment()"
+    >
       <input
         type="text"
         class="form-control"
         placeholder="Add a comment..."
-        id="comment-box"
+        id="commentText"
+        formControlName="commentText"
       />
       <button class="btn btn-primary">Post Comment</button>
     </form>

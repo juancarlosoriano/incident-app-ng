@@ -5,9 +5,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { BaseComponent } from './base/base.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
-  imports: [BrowserModule, FormsModule],
+  imports: [BrowserModule, FormsModule, RouterModule],
   declarations: [BaseComponent, HeaderComponent, FooterComponent],
   exports: [BaseComponent, HeaderComponent, FooterComponent],
 })

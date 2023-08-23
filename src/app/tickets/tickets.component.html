@@ -28,7 +28,7 @@
 
     <div class="col">
       <a class="btn btn-block btn-info btn-status" href="/new-ticket">
-        Add Ticket
+        + Add Ticket
       </a>
     </div>
   </div>
@@ -38,19 +38,40 @@
       <div *ngFor="let t of tickets" class="card ticket">
         <div class="card-body">
           <h5 class="card-title">{{ t.title }}</h5>
-          <h6 class="card-subtitle mb-2 text-muted">{{ t.description }}</h6>
+          <h6 class="card-subtitle mb-2 text-muted">{{ t.createdOn }}</h6>
           <p class="card-text">
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
+            {{ t.description }}
           </p>
-          <a [routerLink]="['/view-ticket', t._id]" class="card-link"
+          <a
+            [routerLink]="['/view-ticket', t._id]"
+            class="btn btn-primary card-link"
             >View Ticket</a
           >
-          <a [routerLink]="['/edit-ticket', t._id]" class="card-link"
+          <a
+            [routerLink]="['/edit-ticket', t._id]"
+            class="btn btn-primary card-link"
             >Edit Ticket</a
           >
-          <a href="#" class="card-link">Close Ticket</a>
-          <a href="#" class="card-link">Delete Ticket</a>
+          <button
+            *ngIf="t.status == 'Open'"
+            class="btn btn-success card-link"
+            (click)="resolveTicket(t._id)"
+          >
+            Resolve Ticket
+          </button>
+          <button
+            *ngIf="t.status == 'Resolved'"
+            class="btn btn-warning card-link"
+            (click)="openTicket(t._id)"
+          >
+            Open Ticket
+          </button>
+          <button
+            class="btn btn-danger card-link"
+            (click)="deleteTicket(t._id)"
+          >
+            Delete Ticket
+          </button>
         </div>
       </div>
     </div>

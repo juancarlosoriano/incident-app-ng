@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ModelModule } from 'src/model/model.module';
-import { Router, RouterModule } from '@angular/router';
-import { NewTicketComponent } from './new-ticket.component';
+import { RouterModule } from '@angular/router';
+import { RegisterComponent } from './register.component';
 
 @NgModule({
   imports: [
@@ -13,7 +13,7 @@ import { NewTicketComponent } from './new-ticket.component';
     RouterModule,
     ReactiveFormsModule,
   ],
-  declarations: [NewTicketComponent],
-  exports: [NewTicketComponent],
+  declarations: [RegisterComponent],
+  exports: [RegisterComponent],
 })
-export class NewTicketModule {}
+export class RegisterModule {}

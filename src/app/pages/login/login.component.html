@@ -1,14 +1,15 @@
 <div class="container-fluid">
   <section class="login-box">
     <h1>Log In</h1>
-    <form>
+    <form [formGroup]="loginForm">
       <div class="form-group">
-        <label for="username">Email address</label>
+        <label for="username">Username</label>
         <input
-          type="email"
+          type="username"
           class="form-control"
           id="username"
           placeholder="Enter username"
+          formControlName="username"
         />
       </div>
 
@@ -19,10 +20,11 @@
           class="form-control"
           id="password"
           placeholder="Password"
+          formControlName="password"
         />
       </div>
 
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button (click)="loginUser()" class="btn btn-primary">Submit</button>
     </form>
   </section>
 </div>

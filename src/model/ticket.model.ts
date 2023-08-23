@@ -10,8 +10,8 @@ export class Ticket {
     public status?: string,
     public description?: string,
     public createdOn?: Date,
-    public createdBy?: [string, string],
-    public assignedTo?: [string, string],
+    public createdBy?: object,
+    public assignedTo?: object,
     public comments?: Array<[string, Date]>,
     public closedOn?: Date
   ) {}

@@ -1,22 +1,36 @@
-<div class="container-fluid">
+<div *ngIf="ticket" class="container-fluid">
   <h1 class="edit-ticket-title">Edit Ticket</h1>
-  <form *ngIf="ticket" action="">
-    <div class="form-group">
-      <label for="title">Title</label>
-      <input
-        type="text"
-        class="form-control"
-        id="title"
-        value="{{ ticket.title }}"
-      />
+  <form [formGroup]="editTicketForm" (ngSubmit)="editTicket()">
+    <div>
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input
+          type="text"
+          class="form-control"
+          id="title"
+          value="{{ ticket.title }}"
+          formControlName="title"
+        />
 
-      <label for="description">Description</label>
-      <input
-        type="text"
-        class="form-control"
-        id="description"
-        value="{{ ticket.description }}"
-      />
+        <label for="description">Description</label>
+        <input
+          type="text"
+          class="form-control"
+          id="description"
+          value="{{ ticket.description }}"
+          formControlName="description"
+        />
+
+        <div class="form-group">
+          <label for="statusSelect">Status</label>
+          <select class="form-select" id="statusSelect">
+            <option>Open</option>
+            <option>Closed</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Save Edit</button>
+      </div>
     </div>
   </form>
 </div>

@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ModelModule } from 'src/model/model.module';
 import { Router, RouterModule } from '@angular/router';
-import { NewTicketComponent } from './new-ticket.component';
+import { LoginComponent } from './login.component';
 
 @NgModule({
   imports: [
@@ -13,7 +13,7 @@ import { NewTicketComponent } from './new-ticket.component';
     RouterModule,
     ReactiveFormsModule,
   ],
-  declarations: [NewTicketComponent],
-  exports: [NewTicketComponent],
+  declarations: [LoginComponent],
+  exports: [LoginComponent],
 })
-export class NewTicketModule {}
+export class LoginModule {}

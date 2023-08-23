@@ -1,12 +1,22 @@
 <div class="container-fluid">
   <h1 class="add-ticket-title">Add Ticket</h1>
-  <form action="">
+  <form [formGroup]="newTicketForm" (ngSubmit)="addTicket()">
     <div class="form-group">
       <label for="title">Title</label>
-      <input type="text" class="form-control" id="title" />
+      <input
+        type="text"
+        class="form-control"
+        id="title"
+        formControlName="title"
+      />
 
       <label for="description">Description</label>
-      <input type="text" class="form-control" id="description" />
+      <input
+        type="text"
+        class="form-control"
+        id="description"
+        formControlName="description"
+      />
     </div>
 
     <br />

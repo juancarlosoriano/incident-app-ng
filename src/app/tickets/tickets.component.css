@@ -16,3 +16,8 @@
 .ticket {
   margin-bottom: 10px;
 }
+
+.card {
+  max-width: 800px;
+  background-color: #dfdfdf;
+}

@@ -8,7 +8,8 @@ import { ViewTicketModule } from './view-ticket/view-ticket.module';
 import { EditTicketModule } from './edit-ticket/edit-ticket.module';
 
 import { HomeComponent } from './pages/home/home.component';
-import { LoginComponent } from './pages/login/login.component';
+import { LoginModule } from './pages/login/login.module';
+import { RegisterModule } from './pages/register/register.module';
 import { PartialsModule } from './partials/partials.module';
 import { NewTicketModule } from './new-ticket/new-ticket.module';
 
@@ -24,11 +25,13 @@ export function jwtTokenGetter(): string {
 }
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, LoginComponent],
+  declarations: [AppComponent, HomeComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    LoginModule,
+    RegisterModule,
     TicketsModule,
     PartialsModule,
     ViewTicketModule,

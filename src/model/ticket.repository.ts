@@ -8,7 +8,9 @@ export class TicketRepository {
   private tickets: Ticket[] = [];
 
   constructor(private datasource: RestDataSource) {
-    datasource.getTickets().subscribe((data) => (this.tickets = data));
+    datasource.getTickets().subscribe((data) => {
+      this.tickets = data;
+    });
   }
 
   getTickets(selectedStatus: string): Ticket[] {
@@ -23,20 +25,27 @@ export class TicketRepository {
     return this.tickets.find((t) => t._id === _id);
   }
 
-  addTicket() {
-    this.tickets = [
-      ...this.tickets,
-      new Ticket(
-        '12345' + Math.ceil(Math.random() * 1000),
-        'First opened ticket',
-        'Open',
-        'This is the first ticket description',
-        new Date(),
-        ['John', 'Smith'],
-        ['John', 'Smith'],
-        [['This is the first comment', new Date()]],
-        undefined
-      ),
-    ];
+  editTicket(_id: string, params: object) {
+    return this.datasource.editTicket(_id, params);
+  }
+
+  openTicket(_id: string) {
+    return this.datasource.openTicket(_id);
+  }
+
+  resolveTicket(_id: string) {
+    return this.datasource.resolveTicket(_id);
+  }
+
+  deleteTicket(_id: string) {
+    return this.datasource.deleteTicket(_id);
+  }
+
+  addTicket(params: object) {
+    return this.datasource.addTicket(params);
+  }
+
+  addComment(_id: string, params: object) {
+    return this.datasource.addComment(_id, params);
   }
 }
